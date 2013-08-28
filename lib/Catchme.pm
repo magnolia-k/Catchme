@@ -6,7 +6,7 @@ use warnings;
 require Exporter;
 our @ISA       = qw/Exporter/;
 our @EXPORT    = qw/catchme/;
-our @EXPORT_OK = qw/forgetme forgetmenot/;
+our @EXPORT_OK = qw/forgetmenot/;
 
 our $VERSION = "0.01";
 
