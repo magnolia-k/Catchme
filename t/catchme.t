@@ -20,6 +20,25 @@ catchme 'TestException' => sub {
 };
 
 
+eval {
+    die "Exception Re-raised";
+};
+
+my $exception = $@;
+
+eval {
+    local $@ = $exception;
+
+    catchme 'Exception' => sub {
+        die "not catch";
+    };
+    
+};
+
+like( $@, qr/Exception Re-raised/, 'not catch exception - rethrow');
+
+
+
 done_testing();
 
 package TestException;
